@@ -1,8 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../../base_equtable.dart';
 import '../../../models/bible_models/bible.dart';
@@ -17,8 +14,8 @@ class BibleBloc extends Bloc<BibleEvent, BibleState> {
   BibleBloc() : super(BibleInitial());
 
   List<Verse> bibleList = [];
-  // List<dynamic> chapter = [];
-  // Chapter chapter;
+
+  Chapter chapter = Chapter();
   String supportText = "";
   String message = '';
 
@@ -35,10 +32,8 @@ class BibleBloc extends Bloc<BibleEvent, BibleState> {
         Map<String, dynamic> jsonData = bible["data"];
         Bible bibleData = Bible.fromJson(jsonData);
         bibleList = bibleData.verses!;
+        chapter = bibleData.chapter!;
         supportText = bibleData.chapter!.number.toString();
-
-        // Map<String, dynamic> jsonData = json.decode(bible["data"]);
-        // Bible bibleObject = Bible.fromJson(jsonData);
 
         yield BibleLoadedState();
       } else {

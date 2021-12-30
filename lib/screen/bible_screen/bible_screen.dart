@@ -41,6 +41,24 @@ class _BibleScreenState extends State<BibleScreen> {
                         padding: const EdgeInsets.all(16.0),
                         child: Text(bloc.message),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Text('Chapter:'),
+                            Text(bloc.chapter.number.toString()),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Text('Verse:'),
+                            Text(bloc.chapter.verses.toString()),
+                          ],
+                        ),
+                      ),
                       Expanded(
                         child: ListView.builder(
                             itemCount: bloc.bibleList.length,

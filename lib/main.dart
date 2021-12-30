@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_api/screen/bible_screen/bible_screen.dart';
 import 'package:sample_api/screen/get_users_screen/get_users_screen.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GetUsersScreen(),
+      home: BibleScreen(),
     );
   }
 }
