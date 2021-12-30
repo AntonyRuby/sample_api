@@ -21,3 +21,17 @@ Future<Map<String, dynamic>> getBibleData() async {
     return {"success": false, "data": e.toString()};
   }
 }
+
+Future<Map<String, dynamic>> usersPostData(dynamic requestData) async {
+  var dio = Dio();
+
+  try {
+    Response response = await dio.post(
+      'https://jsonplaceholder.typicode.com/posts',
+      data: requestData,
+    );
+    return {"success": true, "data": response.data};
+  } on DioError catch (e) {
+    return {"success": false, "data": e.toString()};
+  }
+}
